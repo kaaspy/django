@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+    <style>
+        form, button {
+            display: flex;
+            flex-direction: column;
+        }
+        input, button {
+            max-width: 50%;
+        }
+        .row-container {
+            flex-direction: row;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Formulaire</h1>
+    </header>
+
+    <form>
+        <label for="firstname">Firstname</label>
+        <input id="firstname" type="text">
+
+        <label for="name">Name</label>
+        <input id="name" type="text">
+
+        <label for="age">Age</label>
+        <input id="age" type="number">
+
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel">
+
+        <label for="email">Mail</label>
+        <input id="email" type="email">
+
+        <div class="row-container">
+            <label for="student">Student at 42 ?</label>
+            <input id="student" type="checkbox">
+        </div>
+
+        <div class="row-container">
+            <label for="gender_male">Male</label>
+            <input id="gender_male" type="checkbox">
+
+            <label for="gender_female">Female</label>
+            <input id="gender_female" type="checkbox">
+
+            <label for="gender_other">Other</label>
+            <input id="gender_other" type="checkbox">
+        </div>
+
+    <button id="submit_form">Run that sexy Javascript !</button>
+    </form>
+
+    <script src="popup.js"></script>
+    <script>
+        document.getElementById("submit_form").onclick = displayFormContents
+    </script>
+</body>
+</html>
