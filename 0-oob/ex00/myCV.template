@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV</title>
+</head>
+
+<body>
+    <header>
+        <h1>CV</h1>
+    </header>
+
+    <h2>{fullname}</h2>
+    <br>
+
+    <h3>A propos de moi</h3>
+    <ul>
+        <li>Age : {age}</li>
+        <li>Profession : {profession}</li>
+    </ul>
+</body>
+</html>
