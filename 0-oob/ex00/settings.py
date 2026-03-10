@@ -1,3 +1,3 @@
 fullname = "Téta Toto"
-age = 0
+age = 8
 profession = "Astronaute"
