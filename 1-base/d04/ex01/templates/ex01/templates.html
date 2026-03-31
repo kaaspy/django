@@ -1,0 +1,87 @@
+{% extends "ex01/base.html" %}
+
+{% block title %} Template engine {% endblock %}
+
+{% block content %} 
+<h1>Django template language (DTL)</h1>
+
+<h2>How the template engine works ?</h2>
+<p>
+    <ul>
+        <li>Loading : Django finds the template file</li>
+        <li>Parsing : Scanning for tags</li>
+        <li>Rendering : Takes the context and replaces the tags with passed context values</li>
+    </ul>
+</p>
+
+<h3>Core syntax</h3>
+<ul>
+    <li>
+        Variables {% templatetag openvariable %} variable {% templatetag closevariable %}
+        <p>
+            Outputs the value of variable. Can use dot notation for attributes, dict keys or list index.
+        </p>
+    </li>
+
+    <li>
+        Filters {% templatetag openvariable %} variable|filter {% templatetag closevariable %}
+        <p>
+            Modify or format the output of a variable. Multiple filters can be chained with .
+        </p>
+    </li>
+
+    <li>
+        Template tags {% templatetag openblock %} tag {% templatetag closeblock %} {% templatetag openblock %} endtag {% templatetag closeblock %}
+        <p>
+            Performs logic, loops, include of other templates, etc...
+            The most common tags are :
+            <ul>
+                <li>if : conditional</li>
+                <li>for : loop</li>
+                <li>extends : inheritance on templates</li>
+                <li>include : reusage of html</li>
+                <li>load static : usage of static files</li>
+                <li>csrf_token : CSRF protection</li>
+                <li>url : url generation</li>
+            </ul>
+        </p>
+    </li>
+</ul>
+
+<h3>Variable syntax</h3>
+{% templatetag openvariable %} variable {% templatetag closevariable %} 
+<p>
+    Allows you to display the value of a variable.
+    You need to pass it via the context dict when rendering it from the view.
+</p>
+
+
+<h3>Block syntax</h3>
+{% templatetag openblock %} block blockname {% templatetag closeblock %} {% templatetag openblock %} endblock {% templatetag closeblock %}
+<br>
+{% templatetag openblock %} extends filename {% templatetag closeblock %} 
+<p>
+    Allows to define blocks and define their content via extend tag.
+    This page is generated from a base.html file containing the content block.
+    The text you are reading is contained inside this content block.
+    Django generates the complete HTML response by combining those blocks.
+</p>
+
+<h3>Loop syntax</h3>
+{% templatetag openblock %} for item in items {% templatetag closeblock %} {% templatetag openblock %} endfor {% templatetag closeblock %}
+<p>
+    Allows you to loop over a collection of items and use a scoped variable inside it.
+</p>
+
+<h3>Conditional syntax</h3>
+{% templatetag openblock %} if condition {% templatetag closeblock %} 
+<br>
+{% templatetag openblock %} elif subcondition {% templatetag closeblock %} 
+<br>
+{% templatetag openblock %} else {% templatetag closeblock %} 
+<br>
+{% templatetag openblock %} endif {% templatetag closeblock %}
+<p>
+    Allows you to control the display with conditions.
+</p>
+{% endblock %}

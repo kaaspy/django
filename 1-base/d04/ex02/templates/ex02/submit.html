@@ -1,0 +1,24 @@
+{% extends "ex02/base.html" %}
+
+{% block title %} Submit form {% endblock %}
+
+{% block content %} 
+<h1>Input form</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit">Submit</button>
+</form>
+
+<h1>History</h1>
+<ul>
+    {% for log in history %}
+        {% if log|length > 0 %}
+            <li>{{ log }}</li>
+        {% endif %}
+    {% empty %}
+        <p>No data present</p>
+    {% endfor %}
+</ul>
+{% endblock %}

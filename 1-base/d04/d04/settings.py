@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "ex00",
     "ex01",
+    "ex02",
+    "ex03",
 ]
 
 MIDDLEWARE = [
@@ -120,3 +122,32 @@ STATIC_URL = 'static/'
 
 # Slash auto-append
 APPEND_SLASH = True
+
+# Logging
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+
+    "formatters": {
+        "basic": {
+            "format": "{asctime} | {message}",
+            "style": "{",
+        },
+    },
+
+    "handlers": {
+        "ex02log": {
+            "class": "logging.FileHandler",
+            "filename": "ex02/logs",
+            "formatter": "basic",
+        },
+    },
+
+    "loggers": {
+        "ex02": {
+            "handlers": ["ex02log"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    },
+}

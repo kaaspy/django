@@ -1,0 +1,34 @@
+{% extends "ex03/base.html" %}
+
+{% block title %} Shades {% endblock %}
+
+{% block style %} 
+  th, td {
+    height: 40px;
+    width: 80px;
+  }
+{% endblock %}
+
+{% block content %} 
+
+<h1>Shading table</h1>
+
+<table>
+  <tr>
+    <th>Red</th>
+    <th>Green</th>
+    <th>Blue</th>
+    <th>Black</th>
+  </tr>
+  {% for line in table %}
+  <tr>
+    <td style="background-color: {{ line.red }};"></td>
+    <td style="background-color: {{ line.green }};"></td>
+    <td style="background-color: {{ line.blue }};"></td>
+    <td style="background-color: {{ line.black }};"></td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
+

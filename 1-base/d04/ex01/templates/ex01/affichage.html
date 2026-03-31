@@ -1,0 +1,52 @@
+{% extends "ex01/base.html" %}
+
+{% block title %} Display process {% endblock %}
+
+{% block content %} 
+<h1>Display of a static page in Django</h1>
+
+<h2>The MVT model</h2>
+<p>
+    Django follows the MVT model : Model-View-Template
+    <ul>
+        <li>Model : Handles data</li>
+        <li>View : Contains the logic</li>
+        <li>Template : Defines the HTML presentation</li>
+    </ul>
+</p>
+
+<h3>Flow from a request to a response</h3>
+<ul>
+    <li>The URL dispatcher matches the URL and calls the corresponding view</li>
+    <li>The view handles the necessary logic to display the page like db calls (minimal when the page is static)</li>
+    <li>The view prepares the context data and select the template to use</li>
+    <li>Django template engine loads the template, loads it with context data and generates the HTML</li>
+    <li>Django then returns an HttpResponse containing the HTML to the client browser</li>
+</ul>
+
+<h3>How to call template rendering ?</h3>
+<p>
+    The most common way is to call the render() method.
+    It accepts the request, a path to a template file and the context to be displayed.
+</p>
+<p>
+    A class view can also be used (inheritance from ListView).
+    It takes the same inputs with a object syntax.
+    <br>
+    You can also call the primitives methods used by the render() method.
+    <br>
+    If you return an HttpResponse from a loaded template, Django will render it.
+    This can work for static pages but scalability will suffer.
+</p>
+
+<h3>Summary</h3>
+<ul>
+    <li>View receives request</li>
+    <li>View prepares context</li>
+    <li>render() call</li>
+    <li>Template loader finds and loads the template</li>
+    <li>Template engine processes the template {% templatetag openvariable %} {% templatetag closevariable %} variables and {% templatetag openblock %} {% templatetag closeblock %} tags)</li>
+    <li>Final HTML string is generated</li>
+    <li>HttpResponse is sent to the client</li>
+</ul>
+{% endblock %}

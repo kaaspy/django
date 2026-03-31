@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {% block title %} {% endblock %} </title>
+    <style> {% block style %} {% endblock %} </style>
+    {% if request.resolver_match.url_name == "templates" %}
+        <link rel="stylesheet" href="{% static 'ex01/css/style2.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'ex01/css/style1.css' %}">
+    {% endif %}
+</head>
+<body>
+    {% include "ex01/nav.html" %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
