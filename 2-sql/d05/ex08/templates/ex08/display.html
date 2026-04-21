@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} Display {% endblock%}
+
+{% block content %} 
+  {% if people %}
+    <table border="1">
+      <tr>
+        <th>Name</th>
+        <th>Homeworld</th>
+        <th>Climate</th>
+      </tr>
+    {% for guy in people %}
+    <tr>
+      <td>{{ guy.name }}</td>
+      <td>{{ guy.homeworld }}</td>
+      <td>{{ guy.climate }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+  {% else %}
+    No data available
+  {% endif %}
+{% endblock %}

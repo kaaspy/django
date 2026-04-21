@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} Remove {% endblock%}
+
+{% block content %} 
+  {% if movies %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.movie }}
+    <button type="submit">Submit</button>
+  </form>
+  {% else %}
+    No data available
+  {% endif %}
+{% endblock %}

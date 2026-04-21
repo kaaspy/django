@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %} Home {% endblock%}
+
+{% block content %} 
+{% if request.user.is_authenticated %}
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Create tip" %}
+  </form>
+{% endif %}
+
+<div class="container">
+{% for tip in tips %}
+  <div class="card mt-1">
+    <div class="car-header">
+      Posted by {{ tip.author }} ({{ tip.author.reputation }}) the {{ tip.date }}
+    </div>
+    <div class="card-body">
+      {{ tip.content }}
+    </div>
+    <div class="card-footer d-flex gap-3">
+      <form method="post" action="{% url 'vote' tip.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="nature" value="1">
+        {% bootstrap_button button_type="submit" content="Upvote" %}
+        ({{ tip.upvotes }})
+      </form>
+      <form method="post" action="{% url 'vote' tip.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="nature" value="2">
+        {% bootstrap_button button_type="submit" content="Downvote" %}
+        ({{ tip.downvotes }})
+      </form>
+      <form method="post" action="{% url 'destroy' tip.id %}">
+        {% csrf_token %}
+        {% bootstrap_button button_type="submit" content="Delete" %}
+      </form>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}

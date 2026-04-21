@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %} Update {% endblock%}
+
+{% block content %} 
+  {% if movies %}
+  <form method="POST">
+    {% csrf_token %}
+    <select name="to_update">
+      <option value="">Select a movie to update it's opening crawl</option>
+      {% for movie in movies %}
+      <option value="{{ movie.episode_nb }}">{{ movie.title }}</option>
+      {% endfor %}
+    </select>
+    <br><input type="text" name="opening"><br>
+    <button type="submit">Submit</button>
+  </form>
+  {% else %}
+    No data available
+  {% endif %}
+{% endblock %}

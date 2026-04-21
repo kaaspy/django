@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} Populate {% endblock%}
+
+{% block content %} 
+<ul>
+  {% for msg in messages %}
+    <li>{{ msg }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

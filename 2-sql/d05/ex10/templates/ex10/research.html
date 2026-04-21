@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %} Research {% endblock%}
+
+{% block content %} 
+<h2>Search parameters</h2>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Search</button>
+</form>
+
+{% if is_searched %} 
+  <h2>Search results</h2>
+  {% if result %} 
+    <table border="1">
+      <tr>
+        <th>Character</th>
+        <th>Gender</th>
+        <th>Movie</th>
+        <th>Homeworld</th>
+        <th>Diameter</th>
+      </tr>
+      {% for people in result %}
+        {% for movie in people.movies.all %}
+          <tr>
+            <td>{{ people.name }}</td>
+            <td>{{ people.gender }}</td>
+            <td>{{ movie.title }}</td>
+            <td>{{ people.homeworld }}</td>
+            <td>{{ people.homeworld.diameter }}</td>
+          </tr>
+        {% endfor %} 
+      {% endfor %} 
+    </table>
+  {% else %} 
+    Nothing corresponding to your research
+  {% endif %} 
+
+{% endif %} 
+{% endblock %}
