@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %} Account {% endblock%}
+
+{% block content %} 
+
+<div id="anonymous-container">
+  <p id="form-message"></p>
+  <form id="login_form" method="post">
+    {% csrf_token %}
+    {{ login_form.username }}
+    {{ login_form.password }}
+    <button type="button" onclick="ajaxLogin()" class="btn btn-primary">Login</button>
+  </form>
+</div>
+
+<div id="authenticated-container">
+  <h1>Logged as <span id="user-info"></span></h1>
+  <form id="logout_form" method="post">
+    {% csrf_token %}
+    <button type="button" onclick="ajaxLogout()" class="btn btn-danger">Logout</button>
+  </form>
+</div>
+
+<script>
+
+//global
+var user = {
+  username: "{{ request.user.username }}",
+  authStatus: {{ request.user.is_authenticated|lower }}
+};
+
+//from https://docs.djangoproject.com/en/5.0/howto/csrf/
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function updateDisplay() {
+  let anon = document.getElementById("anonymous-container");
+  let auth = document.getElementById("authenticated-container");
+  let userInfo = document.getElementById("user-info");
+
+  anon.hidden = user.authStatus;
+  auth.hidden = !user.authStatus;
+  userInfo.textContent = user.username;
+}
+updateDisplay()
+
+function ajaxLogin() {
+  let username = document.querySelector("[name=username]").value;
+  let password = document.querySelector("[name=password]").value;
+
+  fetch("/account", {
+    method: "POST",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRFToken": getCookie('csrftoken'),
+    },
+    body: JSON.stringify({
+      "action": "login",
+      "username": username,
+      "password": password,
+    }),
+  })
+  .catch(ex => console.log(ex))
+  .then(response => response.json())
+  .then(data => handleLoginRequest(data));
+}
+
+function handleLoginRequest(data) {
+  let formMessage = document.getElementById("form-message");
+  formMessage.textContent = ""
+
+  if (data.auth) {
+    user.username = data.username;
+    user.authStatus = true;
+  }
+  else {
+    user.username = null;
+    user.authStatus = false;
+    if (data.message)
+      formMessage.textContent = data.message;
+  }
+  updateDisplay()
+}
+
+function ajaxLogout() {
+  fetch("/account", {
+    method: "POST",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRFToken": getCookie('csrftoken'),
+    },
+    body: JSON.stringify({
+      "action": "logout",
+    }),
+  })
+  .catch(ex => console.log(ex))
+  .then(response => response.json())
+  .then(data => handleLogoutRequest(data));
+}
+
+function handleLogoutRequest(data) {
+  user.authStatus = data.auth;
+  updateDisplay()
+}
+
+</script>
+{% endblock %}

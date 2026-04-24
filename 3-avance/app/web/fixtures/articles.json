@@ -1,0 +1,57 @@
+[
+  {
+    "model": "web.article",
+    "pk": 1,
+    "fields": {
+      "title": "0 + 0 = ?",
+      "author": 1,
+      "synopsis": "Combien font zero plus zero ?",
+      "content": "La tete a toto",
+      "created": "1000-01-01T11:11:11Z"
+    }
+  },
+  {
+    "model": "web.article",
+    "pk": 2,
+    "fields": {
+      "title": "Frites ou puree ?",
+      "author": 1,
+      "synopsis": "Un tubercule polyvalent",
+      "content": "Ca depend de l'accompagnement",
+      "created": "1000-01-01T11:11:11Z"
+    }
+  },
+  {
+    "model": "web.article",
+    "pk": 3,
+    "fields": {
+      "title": "Ninja ou samourai ?",
+      "author": 1,
+      "synopsis": "Qui gagne en 1v1 ?",
+      "content": "Le shogunat, la maison gagne toujours",
+      "created": "1000-01-01T11:11:11Z"
+    }
+  },
+  {
+    "model": "web.article",
+    "pk": 4,
+    "fields": {
+      "title": "Comment volent les oiseaux ?",
+      "author": 2,
+      "synopsis": "De dino a moineau",
+      "content": "Avec leurs ailes",
+      "created": "1000-01-01T11:11:11Z"
+    }
+  },
+  {
+    "model": "web.article",
+    "pk": 5,
+    "fields": {
+      "title": "Pain au chocolat ou chocolatine ?",
+      "author": 3,
+      "synopsis": "Un debat houleux",
+      "content": "Pain au chocolat, ici c'est le nord",
+      "created": "1000-01-01T11:11:11Z"
+    }
+  }
+]

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block title %} {% trans "Article Detail" %} {% endblock%}
+
+{% block content %} 
+
+<div class="container">
+  <h2>{{ article.title }}</h2>
+  <h2>{% trans "By" %} {{ article.author }} {% trans "at" %} {{ article.created }}</h2>
+  <form method="post" action="{% url 'add_to_favourites' article.pk %}">
+    {% csrf_token %}
+    <button type="submit" class="nav-link">{% trans "Favourite" %}</button>
+  </form>
+  <p>{{ article.synopsis }}</p>
+  <p>{{ article.content }}</p>
+</div>
+
+{% endblock %}

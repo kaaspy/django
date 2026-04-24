@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-22 15:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/settings.py:113
+msgid "English"
+msgstr "English"
+
+#: app/settings.py:114
+msgid "French"
+msgstr "French"
+
+#: web/login_form.py:11
+msgid "username"
+msgstr ""
+
+#: web/login_form.py:16
+msgid "password"
+msgstr ""
+
+#: web/models.py:11 web/templates/article_list.html:15
+#: web/templates/publications.html:12
+msgid "Title"
+msgstr "Title"
+
+#: web/models.py:18
+msgid "Author"
+msgstr "Author"
+
+#: web/models.py:23 web/templates/article_list.html:18
+#: web/templates/publications.html:13
+msgid "Created"
+msgstr "Created"
+
+#: web/models.py:28 web/templates/article_list.html:16
+#: web/templates/publications.html:14
+msgid "Synopsis"
+msgstr "Synopsis"
+
+#: web/models.py:32
+msgid "Content"
+msgstr "Content"
+
+#: web/models.py:44
+msgid "User"
+msgstr "User"
+
+#: web/models.py:51
+#, fuzzy
+#| msgid "Article List"
+msgid "Article"
+msgstr "Article List"
+
+#: web/templates/article_detail.html:5
+msgid "Article Detail"
+msgstr "Article Detail"
+
+#: web/templates/article_detail.html:11
+msgid "By"
+msgstr "By"
+
+#: web/templates/article_detail.html:11
+msgid "at"
+msgstr "at"
+
+#: web/templates/article_detail.html:14
+msgid "Favourite"
+msgstr "Favourite"
+
+#: web/templates/article_list.html:5
+msgid "Article List"
+msgstr "Article List"
+
+#: web/templates/article_list.html:6 web/templates/base.html:48
+#, fuzzy
+#| msgid "Article List"
+msgid "Articles"
+msgstr "Article List"
+
+#: web/templates/article_list.html:7
+msgid "Share your writings"
+msgstr ""
+
+#: web/templates/article_list.html:17
+msgid "Writer"
+msgstr "Writer"
+
+#: web/templates/article_list.html:19
+msgid "When"
+msgstr "When"
+
+#: web/templates/article_list.html:32
+msgid "Read"
+msgstr "Read"
+
+#: web/templates/base.html:50
+msgid "Favourites"
+msgstr "Favourites"
+
+#: web/templates/base.html:51 web/templates/publications.html:4
+msgid "Publications"
+msgstr "Publications"
+
+#: web/templates/base.html:52 web/templates/publish.html:5
+msgid "Publish"
+msgstr "Publish"
+
+#: web/templates/base.html:54 web/templates/register.html:5
+msgid "Register"
+msgstr "Register"
+
+#: web/templates/base.html:61
+msgid "Logged as"
+msgstr "Logged as"
+
+#: web/templates/base.html:65
+msgid "Logout"
+msgstr ""
+
+#: web/templates/base.html:72 web/templates/login.html:5
+msgid "Login"
+msgstr "Login"
+
+#: web/templates/base.html:74
+msgid "Log In"
+msgstr "Log In"
+
+#~ msgid "Since"
+#~ msgstr "Since"
+
+#~ msgid "Home"
+#~ msgstr "Home"
+
+#~ msgid "Last Articles"
+#~ msgstr "Last Articles"
+
+#~ msgid "Log Out"
+#~ msgstr "Log Out"

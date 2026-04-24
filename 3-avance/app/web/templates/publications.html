@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block title %} {% trans "Publications" %} {% endblock%}
+
+{% block content %} 
+
+<div class="container-fluid p-0 mt-3">
+<table class="table w-100">
+  <thead>
+    <tr>
+      <th class="col-2">{% trans "Title" %}</th>
+      <th class="col">{% trans "Synopsis" %}</th>
+      <th class="col-1">{% trans "Created" %}</th>
+      <th class="col-1">{% trans "When" %}</th>
+      <th class="col-1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in articles|dictsortreversed:"created" %}
+    <tr>
+      <td>{{ article.title }}</td>
+      <td>{{ article.synopsis|truncatechars:20 }}</td>
+      <td>{{ article.created }}</td>
+      <td>{{ article.created|timesince }}</td>
+      <td>
+        <a href="{% url 'detail' article.pk %}" class="btn btn-info text-light"> {% trans "Read" %}</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "toto",
+      "email": "toto@toto.com",
+      "password": "pbkdf2_sha256$1200000$18UmLbLzkcfCTUwNYLOhDa$QzQ3tfMRWjFbGZmfhfrO/ZtS2HGu30HtW7oGtrxShx0=",
+      "first_name": "toto",
+      "last_name": "LateteA",
+      "is_staff": false,
+      "is_active": true
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "username": "titi",
+      "email": "titi@titi.com",
+      "password": "pbkdf2_sha256$1200000$18UmLbLzkcfCTUwNYLOhDa$QzQ3tfMRWjFbGZmfhfrO/ZtS2HGu30HtW7oGtrxShx0=",
+      "first_name": "Titi",
+      "last_name": "LateteA",
+      "is_staff": false,
+      "is_active": true
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "username": "tutu",
+      "email": "tutu@tutu.com",
+      "password": "pbkdf2_sha256$1200000$18UmLbLzkcfCTUwNYLOhDa$QzQ3tfMRWjFbGZmfhfrO/ZtS2HGu30HtW7oGtrxShx0=",
+      "first_name": "Tutu",
+      "last_name": "LateteA",
+      "is_staff": false,
+      "is_active": true
+    }
+  }
+]

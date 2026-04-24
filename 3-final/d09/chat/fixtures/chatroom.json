@@ -1,0 +1,26 @@
+[
+  {
+    "model": "chat.chatroom",
+    "pk": 1,
+    "fields": {
+      "name": "general",
+      "description": "Parler de trucs en generalite"
+    }
+  },
+  {
+    "model": "chat.chatroom",
+    "pk": 2,
+    "fields": {
+      "name": "precis",
+      "description": "Parler de trucs en precision"
+    }
+  },
+  {
+    "model": "chat.chatroom",
+    "pk": 3,
+    "fields": {
+      "name": "la 3",
+      "description": "Car il en faut 3"
+    }
+  }
+]
